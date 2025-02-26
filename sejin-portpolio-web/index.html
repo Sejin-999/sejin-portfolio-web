@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animated Developer Portfolio</title>
+    <link rel="stylesheet" href="./css/main.css">
+    <link rel="stylesheet" href="./css/sidebar.css">
+</head>
+<body>
+    <!-- 🎯 공통 사이드바 포함 (오른쪽 배치) -->
+    <div id="sidebar-container"></div>
+
+    <!-- 🎨 배경용 Canvas -->
+    <canvas id="backgroundCanvas"></canvas>
+
+    <div class="container">
+        <div class="profile-section">
+            <div class="icon-placeholder"></div>
+            <p class="greeting">Hello! I Am <span class="highlight">Yang Sejin</span></p>
+            <h2 class="developer-desc animated-text">
+                <span>A Developer who</span><br>
+                <span>Work together</span><br>
+                <span>about <span class="underline">Team</span></span>
+            </h2>
+            <p class="subtext">
+                There is nothing you can do on your own <br>
+                Let’s be someone we want to work with
+            </p>
+        </div>
+
+        <div class="intro-section">
+            <h1>I'm a <span class="emphasize">Software Engineer.</span></h1>
+            <p class="greeting-blog">
+                Currently, I'm a Software Engineer at 
+                <span class="facebook-link">blog</span> & 
+                <span class="facebook-link">Github</span>
+            </p>
+            <p class="tech-stack">
+                Key technology stacks include Java, Spring, MySQL, JS, Docker, Linux
+            </p>
+        </div>
+    </div>
+
+    <!-- 🌟 스크립트: 사이드바 동적 로딩 -->
+    <script>
+        fetch('./components/sidebar.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('sidebar-container').innerHTML = data;
+                const script = document.createElement('script');
+                script.src = './js/sidebar.js';
+                document.body.appendChild(script);
+            });
+    </script>
+    <script src="./js/main-animation.js"></script>
+</body>
+</html>

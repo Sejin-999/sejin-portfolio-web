@@ -1,0 +1,55 @@
+/* 🌌 사이드바 기본 스타일 (오른쪽 정렬) */
+.sidebar {
+    position: fixed;
+    top: 50%;
+    right: 20px; /* ✅ 오른쪽으로 이동 */
+    transform: translateY(-50%);
+    z-index: 100;
+}
+
+.sidebar ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.sidebar li {
+    font-size: 1rem;
+    color: rgba(200, 200, 200, 0.5); /* 흐릿한 회색 */
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    padding-right: 10px;
+    text-align: right;
+}
+
+/* 🟣 마우스 오버 시 강조 효과 */
+.sidebar li:hover,
+.sidebar li.active {
+    color: #a26bff;
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-shadow: 0 0 15px rgba(162, 107, 255, 0.7);
+    transform: translateX(-10px); /* ✅ 왼쪽으로 강조 이동 */
+}
+
+/* 📱 반응형 사이드바 (모바일: 하단 중앙 정렬) */
+@media (max-width: 768px) {
+    .sidebar {
+        top: auto;
+        bottom: 10px;
+        right: 50%;
+        transform: translateX(50%);
+    }
+
+    .sidebar ul {
+        flex-direction: row;
+        gap: 15px;
+        text-align: center;
+    }
+
+    .sidebar li {
+        transform: translateX(0); /* 모바일에서 강조 이동 제거 */
+    }
+}
